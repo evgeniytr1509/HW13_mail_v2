@@ -34,8 +34,12 @@ async def update_token(user: User, token: str | None, db: AsyncSession) -> None:
     user.refresh_token = token
     db.commit()
 
+async def confirmed_email(email: str, db: AsyncSession) -> None:
+    user = await get_user_by_email(email, db)
+    user.confirmed = True
+    await db.commit()
 
-# Пример использования функций с AsyncSession,
+
 async def main():
     async with AsyncSession() as session:
         email = "example@example.com"

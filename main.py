@@ -1,7 +1,11 @@
-from fastapi import FastAPI
+import asyncio
+import logging
+import uvicorn
+from fastapi import FastAPI, logger, BackgroundTasks
 from starlette.middleware.cors import CORSMiddleware
 
 from routes import todos, auth
+
 
 app = FastAPI()
 
@@ -17,6 +21,17 @@ app.include_router(auth.router)
 app.include_router(todos.router, prefix='/api')
 
 
+async def task():
+    await asyncio.sleep(3)
+    logging.info("Send email")
+    print ("Send email")
+    return True
+
+
 @app.get("/")
-def read_root():
+async def read_root(background_tasks: BackgroundTasks):
+    background_tasks.add_task(task)
     return {"message": "TODO API"}
+
+if __name__ == '__main__':
+    uvicorn.run("main:app", host="localhost", reload=True, log_level="info")

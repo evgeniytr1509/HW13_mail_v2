@@ -26,6 +26,7 @@ class User(Base):
     updated_at: Mapped[date] = mapped_column('updated_at', DateTime, default=func.now(), onupdate=func.now())
     avatar: Mapped[str] = Column(String(255), nullable=True)
     refresh_token: Mapped[str] = Column(String(255), nullable=True)
+    confirmed: Mapped[bool] = mapped_column (Boolean, default=False)
 
 class Contact(Base):  
     __tablename__ = "contacts"
