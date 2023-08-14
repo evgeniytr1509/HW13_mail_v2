@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=F:\Dell\Web\230812_Modul_13_mail\myenv
+set VIRTUAL_ENV=f:\Dell\Web\230812_Modul_13_mail\HW13_mail_v2\myenv
 
 if not defined PROMPT set PROMPT=$P$G
 

@@ -2,6 +2,7 @@ import asyncio
 import logging
 import uvicorn
 from fastapi import FastAPI, logger, BackgroundTasks
+from fastapi.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
 
 from routes import todos, auth
@@ -16,6 +17,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+#app.mount("/static", StaticFiles(directory="src/static"), name="static")
 
 app.include_router(auth.router)
 app.include_router(todos.router, prefix='/api')

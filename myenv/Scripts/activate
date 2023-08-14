@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="F:\Dell\Web\230812_Modul_13_mail\myenv"
+VIRTUAL_ENV="f:\Dell\Web\230812_Modul_13_mail\HW13_mail_v2\myenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

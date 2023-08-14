@@ -14,9 +14,6 @@ SQLALCHEMY_DATABASE_URL = "postgresql+psycopg2://postgres:567234@195.201.150.230
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 
-
-
-
 class DatabaseSessionManager:
     def __init__(self, url: str):
         self._engine: AsyncEngine | None = create_async_engine(url)
@@ -24,10 +21,6 @@ class DatabaseSessionManager:
                                                                             autoflush=False,
                                                                             expire_on_commit=False,
                                                                             bind=self._engine)
-
-
-
-
 
 
     @contextlib.asynccontextmanager
