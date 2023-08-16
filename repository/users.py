@@ -15,7 +15,6 @@ async def get_user_by_email(email: str, db: AsyncSession) -> User:
     logging.info(user)
     return user
 
-
 async def create_user(body: UserSchema, db: AsyncSession) -> User:
     avatar = None
     try:
