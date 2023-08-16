@@ -5,7 +5,7 @@ from sqlalchemy import Column, Enum, Integer, String, Boolean, ForeignKey, DateT
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from database.db import Base
-
+import psycopg2
 
 class Todo(Base):
     __tablename__ = "todos"

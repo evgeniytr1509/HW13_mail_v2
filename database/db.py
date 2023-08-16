@@ -10,7 +10,7 @@ from sqlalchemy.orm import DeclarativeBase
 from conf.config import config
 
 
-SQLALCHEMY_DATABASE_URL = "postgresql+psycopg2://postgres:567234@195.201.150.230:5433/evgeniy_rt_fa" #
+SQLALCHEMY_DATABASE_URL = "postgresql+asyncpg://postgres:567234@195.201.150.230:5433/evgeniy_rt_fa" #
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 
@@ -35,8 +35,6 @@ class DatabaseSessionManager:
             await session.rollback()
         finally:
             await session.close()
-
-
 
 
 # Dependency

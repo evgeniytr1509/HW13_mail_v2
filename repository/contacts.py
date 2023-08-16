@@ -4,8 +4,6 @@ from schemas import ContactCreate, ContactRead
 from database.models import Contact  
 
 
-
-
 def create_contact(db: Session, contact_data: ContactCreate):
     #  логика для создания контакта в базе данных
     contact = Contact(**contact_data.dict())
